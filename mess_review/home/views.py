@@ -210,6 +210,7 @@ def reg(request):
     code = random.randint(100000, 9999999)
     new_stu = student(name=name, ldap=ldap, password=passw, code=code, status='unverified')
     new_stu.save()
+    sender_email= "" ## Enter sender email
 
 
     link = f'http://127.0.0.1:8000/confirm/?sn={code}&ldap={ldap}'
@@ -217,8 +218,8 @@ def reg(request):
     send_mail(
         'Register to IITB Hostel Mess',
         f'Hi {name}, you have registered to IITB hostel Mess Web app, please confirm your email by clicking on the below link\n {link}',
-        'jingax.dev@gmail.com',
-        ['aastik.soul@gmail.com'],
+        sender_email,
+        [f'{ldap}@iitb.ac.in'],
         fail_silently=True,
     )
 
