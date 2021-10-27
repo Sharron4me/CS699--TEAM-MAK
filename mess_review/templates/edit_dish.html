@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add New Dish</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">Hostel 1 Mess</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="campaigns.html">Campaigns</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="request.html">New Dish Approve</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="index.html" >
+                        <i class="bi bi-box-arrow-right"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-dark py-4">
+        <div class="container px-4 px-lg-4 my-4">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Add New Dish</h1>
+            </div>
+        </div>
+    </header>
+    <div class="row">
+    <div class="container col-4" style="padding:10vh 0;">
+
+      <form method="post" action="/edit_item/" enctype="multipart/form-data">
+        <!-- Upload Area -->
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{id}}">
+          <div id="uploadArea" class="upload-area">
+            <!-- Header -->
+            <div class="upload-area__header">
+              <h1 class="upload-area__title">Change only those fields which u want to update</h1>
+              <p class="upload-area__paragraph">
+                Upload Dish Image
+                <strong class="upload-area__tooltip">
+                  Here
+                  <span class="upload-area__tooltip-data"></span>
+                </strong>
+              </p>
+            </div>
+
+            <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+              <span class="drop-zoon__icon">
+                <i class='bx bxs-file-image'></i>
+              </span>
+              <input type="file" id="fileInput" name="imagef" class="drop-zoon__file-input" accept="image/*">
+            </div>
+          </div>
+          <br>
+          <!-- End Upload Area -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="name">Dish Name</label>
+              <input type="text" class="form-control" placeholder="Dish name" name="name" id="name">
+            </div>
+          </div>
+          <!--  col-md-6   -->
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="number" class="form-control" name="price" placeholder="00.00" id="price">
+            </div>
+          </div>
+          <!--  col-md-6   -->
+        </div>
+        <div class="row">
+            <div class="form-group">
+              <label for="Ingredients">Description</label>
+              <textarea class="form-control" name = "des" id="Ingredients" placeholder="Some about the dish" rows="5"></textarea>
+            </div>
+        </div>
+
+
+        <label >Dish Serving Time</label>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="checks[]" value="Breakfast"> BreakFast
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="checks[]" value="Lunch"> Lunch
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="checks[]" value="Snacks"> Snacks
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="checks[]" value="Dinner"> Dinner
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Item</button>
+      </form>
+    </div>
+        <div class="container col-4" style="padding:10vh 0;">
+
+            <div class="card">
+  <h5 class="card-header">Current Details</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <p class="card-text">{{des}}<br>
+    Servetime : {{time}}</p><br>
+      <img class="card-img-top" style="height:30vh;width:100%;" src="/media/{{image}}" alt="poha" />
+
+    <span class="mt-1 btn btn-primary">Rs. {{price}}</span>
+  </div>
+</div>
+        </div>
+    </div>
+
+      <footer class="py-5 bg-dark">
+          <div class="container"><p class="m-0 text-center text-white">Copyright &copy;Hostel1 Mess</p></div>
+      </footer>
+
+  </body>
+</html>

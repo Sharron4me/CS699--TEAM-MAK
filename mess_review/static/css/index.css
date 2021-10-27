@@ -1,0 +1,13 @@
+.login_form{
+  width: 40vw;
+  margin: 10vh auto;
+}
+.im_head{
+  width: 10vw;
+  height: 10vw;
+  display: inline;
+}
+.text-center .bi{
+  margin:auto 1vw;
+  cursor: pointer;
+}
