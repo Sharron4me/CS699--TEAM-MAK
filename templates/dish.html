@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title id="title"></title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div id="navs" class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">Hostel 1 Mess Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="campaigns.html">Campaigns</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dishapprove.html">New Dish Approve</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="index.html" >
+                          <i class="bi bi-box-arrow-right"></i>Logout</a>
+                      </li>
+                  </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-dark py-4">
+        <div class="container px-4 px-lg-4 my-4">
+            <div class="text-center text-white">
+                <h1 id="name" class="display-4 fw-bolder"></h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding:5vh 0;margin:auto;width:100%;">
+      <center style="display:block;">
+     <div class="card mb-3"><center>
+  <img style="height:auto;width:50vh;" id = "image" src="{% static 'image/staff/monkey1.jpg' %}">
+  </center><div class="card-body">
+    <h5 class="card-title" id="price"></h5>
+    <p class="card-text" id="des">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted" id="rate"></small></p>
+      <p class="card-text"><small class="text-muted" id="serve"></small></p>
+  </div>
+</div>    </center>
+    <div class="Reviews"style="padding:0 5vw ;">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h5 class="display-16">Post a review</h5>
+            <label class="form-label">Posting a new review for this dish will overwrite your old review</label>
+            <form method="post" action="/post_review/" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label id="slide_val" for="rating" class="form-label">Slide to giving ratings</label>
+                    <input type="range" onchange="value_change();" class="form-range" min="1" max="5" step="1" id="rating" name="rating">
+                    <textarea placeholder="Write Something Here..." class="form-control" id="text" name="text" rows="3"></textarea>
+                </div>
+                <label for="imagef" class="form-label">Add a picture</label>
+                <div class="row">
+                 <div class="col-6">
+                <input type="hidden" name="fid" id="fid">
+
+                  <input class="form-control" type="file" id="imagef" name="imagef">
+                </div> <div class="col-6">
+                  <button type="submit" class="btn btn-primary mb-3">Post Review</button>
+{% csrf_token %}
+                </div>
+                <div class="checkbox">
+          <label>
+            <input type="checkbox" name="checks[]" value="1"> Post Anonymously as Ninja
+          </label>
+        </div>
+                </div>
+            </form>
+        </div>
+      </div>
+        <p class="lead">Reviews</p>
+<div id="review_block">
+      <div class="jumbotron jumbotron-fluid"><div class="container"><h5 class="display-16">User_name/rating</h5><p class="lead">text</p>{img}</div></div>
+      <div class="jumbotron jumbotron-fluid"><div class="container"><h5 class="display-16">Fluid jumbotron</h5><p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p></div></div>
+</div>
+    </div>
+        <br>
+    <footer class="py-5 bg-dark">
+          <div class="container"><p class="m-0 text-center text-white">Copyright &copy;Hostel1 Mess</p></div>
+      </footer>
+  </body>
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+
+  <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+<script>
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var dish_id = urlParams.get("fid");
+    $("#fid").val(dish_id);
+    console.log(urlParams);
+    var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+        $.ajax({
+          url: "http://{{ request.get_host }}/show_dish/",
+          type: "POST",
+          headers: { "X-CSRFToken": csrf },
+          data: { fid:dish_id },
+          success: function(data) {
+          console.log(data);
+          var data = data.split("##");
+          $("#title").html(data[0]);
+          $("#name").html(data[0]);
+          $("#price").html("Rs. "+data[1]);
+          $("#des").html(data[2]);
+          $("#image").attr("src", "/media/"+data[3]);
+          $("#serve").html("Served at "+data[4]);
+          }
+        });
+
+         $.ajax({
+          url: "http://{{ request.get_host }}/show_review/",
+          type: "POST",
+          headers: { "X-CSRFToken": csrf },
+          data: { fid:dish_id },
+          success: function(data) {
+          //console.log(data);
+          data = data.split("##");
+          $("#rate").html("Average Rating: "+data[0]);
+          $("#review_block").html(data[1]);
+          //$("#image").attr("src", "/media/"+data[3]);
+          }
+        });
+</script>
+  <script>
+      function value_change(){
+      var val = $("#rating").val();
+      $("#slide_val").html("Slide to give rating "+val+"/5");
+      }
+      value_change();
+  </script>
+<script>
+    var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+    $.ajax({
+          url: "http://{{ request.get_host }}/student_nav/",
+          type: "POST",
+          headers: { "X-CSRFToken": csrf },
+          data: { },
+          success: function(data) {
+          //console.log(data);
+          $("#navs").html(data);
+          }
+        });
+</script>
+</html>

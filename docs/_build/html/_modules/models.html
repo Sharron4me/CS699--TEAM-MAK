@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>models &#8212; mess  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for models</h1><div class="highlight"><pre>
+<span></span>
+
+<div class="viewcode-block" id="student"><a class="viewcode-back" href="../models.html#models.student">[docs]</a><span class="k">class</span> <span class="nc">student</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Model has the following atributes and is used to store student Info</span>
+<span class="sd">    1)  ldap ID</span>
+<span class="sd">    2)  Name</span>
+<span class="sd">    3)  password</span>
+<span class="sd">    4)  Verification Code</span>
+<span class="sd">    5)  Account Status</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># ldap = models.CharField(max_length=30)</span>
+    <span class="c1"># name = models.CharField(max_length=30)</span>
+    <span class="c1"># password = models.CharField(max_length=30)</span>
+    <span class="c1"># code = models.CharField(max_length=30)</span>
+    <span class="c1"># status = models.CharField(max_length=30)</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="admintable"><a class="viewcode-back" href="../models.html#models.admintable">[docs]</a><span class="k">class</span> <span class="nc">admintable</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Model is used to store admin info and has the following atributes</span>
+<span class="sd">        1)  user_name</span>
+<span class="sd">        2)  Name</span>
+<span class="sd">        3)  password</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># ldap = models.CharField(max_length=30)</span>
+    <span class="c1"># name = models.CharField(max_length=30)</span>
+    <span class="c1"># password = models.CharField(max_length=30)</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="waste"><a class="viewcode-back" href="../models.html#models.waste">[docs]</a><span class="k">class</span> <span class="nc">waste</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Model is used to store daily food wastage and has the following atributes</span>
+<span class="sd">        1)  Date</span>
+<span class="sd">        2)  Total food prepared</span>
+<span class="sd">        3)  Wastage</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="dish"><a class="viewcode-back" href="../models.html#models.dish">[docs]</a><span class="k">class</span> <span class="nc">dish</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Model is used to store dish details and has the following atributes</span>
+<span class="sd">        1)  Name</span>
+<span class="sd">        2)  Price</span>
+<span class="sd">        3)  Description</span>
+<span class="sd">        4)  Serving time</span>
+<span class="sd">        5)  Image</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># name = models.CharField(max_length=30)</span>
+    <span class="c1"># price = models.IntegerField()</span>
+    <span class="c1"># des = models.CharField(max_length=100)</span>
+    <span class="c1"># serve_time = models.CharField(max_length=50)</span>
+    <span class="c1"># ifile = models.ImageField(upload_to=&#39;static/assets&#39;,default=&#39;&#39;)</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="complaint"><a class="viewcode-back" href="../models.html#models.complaint">[docs]</a><span class="k">class</span> <span class="nc">complaint</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Model is used to store complaints and has the following attributes</span>
+<span class="sd">            1)  Subject</span>
+<span class="sd">            2)  Owner</span>
+<span class="sd">            3)  Description</span>
+<span class="sd">            4)  Image</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+    <span class="c1"># onwer = models.IntegerField()</span>
+    <span class="c1"># sub = models.CharField(max_length=30)</span>
+    <span class="c1"># des = models.CharField(max_length=100)</span>
+    <span class="c1"># ifile = models.ImageField(upload_to=&#39;static/assets&#39;,default=&#39;&#39;)</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="campaign"><a class="viewcode-back" href="../models.html#models.campaign">[docs]</a><span class="k">class</span> <span class="nc">campaign</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Model is used to store and has the following atributes</span>
+<span class="sd">            1)  Subject</span>
+<span class="sd">            2)  Owner</span>
+<span class="sd">            3)  Description</span>
+<span class="sd">            4)  Up Votes</span>
+<span class="sd">            5)  Down Votes</span>
+<span class="sd">            6)  status</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+    <span class="c1"># owner = models.IntegerField()</span>
+    <span class="c1"># sub = models.CharField(max_length=30)</span>
+    <span class="c1"># des = models.CharField(max_length=100)</span>
+    <span class="c1"># ups = models.CharField(max_length=300,default=&#39;&#39;)</span>
+    <span class="c1"># dns = models.CharField(max_length=300,default=&#39;&#39;)</span>
+    <span class="c1"># status = models.CharField(max_length=20,default=&#39;Active&#39;)</span>
+    <span class="k">pass</span></div>
+
+
+<span class="c1"># Create your models here.</span>
+
+<div class="viewcode-block" id="review"><a class="viewcode-back" href="../models.html#models.review">[docs]</a><span class="k">class</span> <span class="nc">review</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Model is used to store food reviews and has the following atributes</span>
+<span class="sd">            1)  Owner</span>
+<span class="sd">            2)  dish ID</span>
+<span class="sd">            3)  Anonumity Status</span>
+<span class="sd">            4)  Review Text</span>
+<span class="sd">            5)  Review Image</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+    <span class="c1"># owner = models.IntegerField()</span>
+    <span class="c1"># fid = models.IntegerField()</span>
+    <span class="c1"># anon = models.IntegerField()</span>
+    <span class="c1"># text = models.CharField(max_length=100)</span>
+    <span class="c1"># rating = models.IntegerField()</span>
+    <span class="c1"># ifile = models.ImageField(upload_to=&#39;static/assets&#39;, default=&#39;&#39;)</span>
+    <span class="k">pass</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">mess</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">New folder</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, kiran.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

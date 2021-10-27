@@ -1,0 +1,929 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>views &#8212; mess  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for views</h1><div class="highlight"><pre>
+<span></span>
+
+
+<div class="viewcode-block" id="stu_waste"><a class="viewcode-back" href="../views.html#views.stu_waste">[docs]</a><span class="k">def</span> <span class="nf">stu_waste</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Loads Page to view wastage for students</span>
+<span class="sd">    Return django.shortcuts.render object with stu_waste.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;student_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;stu_waste.html&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="view_waste"><a class="viewcode-back" href="../views.html#views.view_waste">[docs]</a><span class="k">def</span> <span class="nf">view_waste</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view wastage for Admin</span>
+<span class="sd">        Return django.shortcuts.render object with waste_food.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;admin_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">adminlog</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;waste_food.html&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="comp_detail"><a class="viewcode-back" href="../views.html#views.comp_detail">[docs]</a><span class="k">def</span> <span class="nf">comp_detail</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view complain details for students</span>
+<span class="sd">        Return django.shortcuts.render object with comp_detail_stu.html</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;student_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;comp_detail_stu.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="admin_comp_detail"><a class="viewcode-back" href="../views.html#views.admin_comp_detail">[docs]</a><span class="k">def</span> <span class="nf">admin_comp_detail</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view complain details for admin</span>
+<span class="sd">        Return django.shortcuts.render object with comp_detail_admin.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;admin_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">adminlog</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;comp_detail_admin.html&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="raise_comp"><a class="viewcode-back" href="../views.html#views.raise_comp">[docs]</a><span class="k">def</span> <span class="nf">raise_comp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view form to raise complaint details for students</span>
+<span class="sd">        Return django.shortcuts.render object with complain.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;student_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;complain.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="raise_camp"><a class="viewcode-back" href="../views.html#views.raise_camp">[docs]</a><span class="k">def</span> <span class="nf">raise_camp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view form to raise campaign details for students</span>
+<span class="sd">        Return django.shortcuts.render object with new_camp.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;student_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;new_camp.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="comp"><a class="viewcode-back" href="../views.html#views.comp">[docs]</a><span class="k">def</span> <span class="nf">comp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view complaint for students</span>
+<span class="sd">        Return django.shortcuts.render object with view_comp.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;view_comp.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="admin_comp"><a class="viewcode-back" href="../views.html#views.admin_comp">[docs]</a><span class="k">def</span> <span class="nf">admin_comp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view complaints for admin</span>
+<span class="sd">        Return django.shortcuts.render object with admin_comp.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;admin_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">adminlog</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;admin_comp.html&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="dishs"><a class="viewcode-back" href="../views.html#views.dishs">[docs]</a><span class="k">def</span> <span class="nf">dishs</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view all dishes for students</span>
+<span class="sd">        Return django.shortcuts.render object with dish.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;student_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;dish.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="login"><a class="viewcode-back" href="../views.html#views.login">[docs]</a><span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page for student login</span>
+<span class="sd">        Return django.shortcuts.render object with index.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="adminlog"><a class="viewcode-back" href="../views.html#views.adminlog">[docs]</a><span class="k">def</span> <span class="nf">adminlog</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page for admin login</span>
+<span class="sd">        Return django.shortcuts.render object with adminlog.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;adminlog.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="adminhome"><a class="viewcode-back" href="../views.html#views.adminhome">[docs]</a><span class="k">def</span> <span class="nf">adminhome</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view Admin&#39;s home page</span>
+<span class="sd">        Return django.shortcuts.render object with admin.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;admin_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">adminlog</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;admin.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="viewdish"><a class="viewcode-back" href="../views.html#views.viewdish">[docs]</a><span class="k">def</span> <span class="nf">viewdish</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page to view dishes table for admin</span>
+<span class="sd">        Return django.shortcuts.render object with viewdish.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;admin_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">adminlog</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;viewdish.html&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="log_admin"><a class="viewcode-back" href="../views.html#views.log_admin">[docs]</a><span class="k">def</span> <span class="nf">log_admin</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Verifies Admin&#39;s Credentials</span>
+<span class="sd">        Return django.shortcuts.redirect object with /adminhome if success</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">passw</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pwd&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ldap</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">passw</span><span class="p">,</span><span class="n">ldap</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">admintable</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">passw</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exists&quot;</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">admintable</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">passw</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;admin_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;admin_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">adminhome</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Login failed!! Try again &lt;a href=&quot;http://127.0.0.1:8000/adminlog&quot;&gt;here&lt;/a&gt;&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="log_ver"><a class="viewcode-back" href="../views.html#views.log_ver">[docs]</a><span class="k">def</span> <span class="nf">log_ver</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Verify Students Credentials</span>
+<span class="sd">        Return django.shortcuts.redirect object with /home if success</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">passw</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pwd&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ldap</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">passw</span><span class="p">,</span><span class="n">ldap</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">passw</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exists&quot;</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">passw</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;Email Verified&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;You have not been verified by admin&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">t</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;unverified&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;You have not verified your LDAP, check your mail.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span>
+
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">home</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Login failed!! Try again &lt;a href=&quot;http://127.0.0.1:8000/&quot;&gt;here&lt;/a&gt;&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="confirm"><a class="viewcode-back" href="../views.html#views.confirm">[docs]</a><span class="k">def</span> <span class="nf">confirm</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Verify Students Email from link sent to IITB mail</span>
+<span class="sd">        Return django.shortcuts.HttpResponse object with result</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ldap</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sn&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="n">ldap</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">,</span><span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exists&quot;</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">,</span><span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Email Verified&#39;</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Verified! Login &lt;a href=&quot;http://127.0.0.1:8000/&quot;&gt;here&lt;/a&gt;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Verification Failed!!&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="register"><a class="viewcode-back" href="../views.html#views.register">[docs]</a><span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads Page for student register</span>
+<span class="sd">        Return django.shortcuts.render object with register.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;register.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="show_dish"><a class="viewcode-back" href="../views.html#views.show_dish">[docs]</a><span class="k">def</span> <span class="nf">show_dish</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends details for a dish id received in a POST request</span>
+<span class="sd">        Return django.shortcuts.HttpResponse object with results</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">fid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fid&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fid</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">dish</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">fid</span><span class="p">))</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">price</span><span class="p">),</span> <span class="n">t</span><span class="o">.</span><span class="n">des</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">ifile</span><span class="p">),</span><span class="n">t</span><span class="o">.</span><span class="n">serve_time</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;##&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="student_load"><a class="viewcode-back" href="../views.html#views.student_load">[docs]</a><span class="k">def</span> <span class="nf">student_load</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends all student details for admin to view in tabular form</span>
+<span class="sd">        Return django.shortcuts.HttpResponse object with results</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">students</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">students</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;No actions&#39;</span>
+        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span><span class="o">==</span><span class="s1">&#39;Email Verified&#39;</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; onclick=&quot;update(</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">ldap</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">);&quot;&gt;Verify&lt;/button&gt;&#39;</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&lt;tr&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">ldap</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="view_comp"><a class="viewcode-back" href="../views.html#views.view_comp">[docs]</a><span class="k">def</span> <span class="nf">view_comp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends student&#39;s complaint details to view in tabular form</span>
+<span class="sd">        Return django.shortcuts.HttpResponse object with results</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">coms</span> <span class="o">=</span> <span class="n">complaint</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">onwer</span><span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">])</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ss</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">coms</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;a href=&quot;/comp_detail/?cid=</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&quot;&gt;View&lt;/a&gt;&#39;</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&lt;tr&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">ss</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">sub</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;&quot;</span>
+        <span class="n">ss</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="admin_view_comp"><a class="viewcode-back" href="../views.html#views.admin_view_comp">[docs]</a><span class="k">def</span> <span class="nf">admin_view_comp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends all student complaint details for admin to view in tabular form</span>
+<span class="sd">        Return django.shortcuts.HttpResponse object with results</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">coms</span> <span class="o">=</span> <span class="n">complaint</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ss</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">coms</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">onwer</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">owner</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">onwer</span><span class="p">)</span>
+            <span class="n">owner</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">owner</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (LDAP: </span><span class="si">{</span><span class="n">owner</span><span class="o">.</span><span class="n">ldap</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">owner</span> <span class="o">=</span> <span class="s2">&quot;User Deleted&quot;</span>
+
+        <span class="n">c</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;a href=&quot;/admin_comp_detail/?cid=</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&quot;&gt;View&lt;/a&gt;&#39;</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&lt;tr&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">ss</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">owner</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">sub</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;&quot;</span>
+        <span class="n">ss</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="load_waste"><a class="viewcode-back" href="../views.html#views.load_waste">[docs]</a><span class="k">def</span> <span class="nf">load_waste</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends all wastage details between from and to dates recevied in POST request to view in tabular form</span>
+<span class="sd">        Return django.shortcuts.HttpResponse object with results</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">to</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;to&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">from_</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">from_</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">to</span><span class="p">))</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">to</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">from_</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="n">wastes</span> <span class="o">=</span> <span class="n">waste</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">wastes</span> <span class="o">=</span> <span class="n">waste</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">date__range</span><span class="o">=</span><span class="p">[</span><span class="n">from_</span><span class="p">,</span> <span class="n">to</span><span class="p">])</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">wastes</span><span class="p">:</span>
+        <span class="n">perc</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">total</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">perc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">wastage</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">s</span><span class="o">.</span><span class="n">total</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&lt;tr&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">date</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">total</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">wastage</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">perc</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;&quot;</span>
+        <span class="n">c</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="dish_load"><a class="viewcode-back" href="../views.html#views.dish_load">[docs]</a><span class="k">def</span> <span class="nf">dish_load</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads all dishes for admin in tabular form</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with results</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">dishs</span> <span class="o">=</span> <span class="n">dish</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ss</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">dishs</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; onclick=&quot;update(</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">);&quot;&gt;Delete&lt;/button&gt;&#39;</span>
+        <span class="n">c</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39; &lt;a href=&quot;\edit?id=</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Edit&lt;/button&gt;&lt;/a&gt;&#39;</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&lt;tr&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">ss</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;Rs. </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">price</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;&quot;</span>
+        <span class="n">ss</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="c1"># print(output)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="show_review"><a class="viewcode-back" href="../views.html#views.show_review">[docs]</a><span class="k">def</span> <span class="nf">show_review</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads all reviews for a dish id, from GET request</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with results</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XXXXXXXXXXX&quot;</span><span class="p">)</span>
+    <span class="n">fid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fid&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">reviews</span> <span class="o">=</span> <span class="n">review</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ss</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">reviews</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">ifile</span> <span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;img style=&quot;height:25vh;width:auto;&quot; src=&quot;/media/</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">ifile</span><span class="si">}</span><span class="s1">&quot;&gt;&#39;</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;Deleted User&quot;</span>
+        <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exists&quot;</span><span class="p">)</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">anon</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;Anonymous Ninja&quot;</span>
+
+
+        <span class="n">rate</span> <span class="o">+=</span> <span class="n">s</span><span class="o">.</span><span class="n">rating</span>
+        <span class="n">ss</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;&lt;div class=&quot;jumbotron jumbotron-fluid&quot;&gt;&lt;div class=&quot;container&quot;&gt;&lt;h5 class=&quot;display-16&quot;&gt;</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">rating</span><span class="si">}</span><span class="s1">/5&lt;/h5&gt;&lt;p class=&quot;lead&quot;&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s1">&lt;/p&gt;</span><span class="si">{</span><span class="n">img</span><span class="si">}</span><span class="s1">&lt;/div&gt;&lt;/div&gt;&lt;br&gt;&#39;</span>
+
+    <span class="c1"># print(output)</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span><span class="o">/</span><span class="n">ss</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">rate</span>
+    <span class="n">rate</span> <span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">rate</span><span class="o">+</span><span class="s2">&quot;##&quot;</span><span class="o">+</span><span class="n">output</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="verify"><a class="viewcode-back" href="../views.html#views.verify">[docs]</a><span class="k">def</span> <span class="nf">verify</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Student Verification confirmation done by Admin</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with response</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ldap</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Admin Verified&#39;</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="delete_dish"><a class="viewcode-back" href="../views.html#views.delete_dish">[docs]</a><span class="k">def</span> <span class="nf">delete_dish</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Deletes a dish as requested by Admin</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with response</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">dish</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="reg"><a class="viewcode-back" href="../views.html#views.reg">[docs]</a><span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Registers student to the portal and sends confirmation email to their emails.</span>
+<span class="sd">        Return django.shortcuts.HttpResponse</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">passw</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pass&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ldap</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">passw</span><span class="p">,</span> <span class="n">ldap</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">9999999</span><span class="p">)</span>
+    <span class="n">new_stu</span> <span class="o">=</span> <span class="n">student</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ldap</span><span class="o">=</span><span class="n">ldap</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">passw</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;unverified&#39;</span><span class="p">)</span>
+    <span class="n">new_stu</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+
+    <span class="n">link</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;http://127.0.0.1:8000/confirm/?sn=</span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s1">&amp;ldap=</span><span class="si">{</span><span class="n">ldap</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="c1"># return render(request, &#39;index.html&#39;)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+    <span class="n">send_mail</span><span class="p">(</span>
+        <span class="s1">&#39;Register to IITB Hostel Mess&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;Hi </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, you have registered to IITB hostel Mess Web app, please confirm your email by clicking on the below link</span><span class="se">\n</span><span class="s1"> </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;jingax.dev@gmail.com&#39;</span><span class="p">,</span>
+        <span class="p">[</span><span class="s1">&#39;kiran.ranebennur@gmail.com&#39;</span><span class="p">],</span>
+        <span class="n">fail_silently</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span></div>
+<span class="c1"># Create your views here.</span>
+
+<div class="viewcode-block" id="post_review"><a class="viewcode-back" href="../views.html#views.post_review">[docs]</a><span class="k">def</span> <span class="nf">post_review</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Adds review to a dish for student</span>
+<span class="sd">        Return django.shortcuts.redirect with /dish</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+    <span class="n">anon</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;checks[]&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">fid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fid&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">rating</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">[</span><span class="s2">&quot;imagef&quot;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">review</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">owner</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">],</span><span class="n">fid</span><span class="o">=</span><span class="n">fid</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">review</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">owner</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">],</span><span class="n">fid</span><span class="o">=</span><span class="n">fid</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+    <span class="n">new_rev</span> <span class="o">=</span> <span class="n">review</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">anon</span><span class="p">),</span><span class="n">owner</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">],</span> <span class="n">fid</span><span class="o">=</span><span class="n">fid</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">rating</span><span class="o">=</span><span class="n">rating</span><span class="p">,</span><span class="n">ifile</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">new_rev</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/dishs/?fid=&quot;</span><span class="o">+</span><span class="n">fid</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="home"><a class="viewcode-back" href="../views.html#views.home">[docs]</a><span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads student home page with all dishes</span>
+<span class="sd">        Return django.shortcuts.render with home.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;student_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">])</span>
+    <span class="n">dishes</span> <span class="o">=</span> <span class="n">dish</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">idf</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dishes</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">ifile</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">price</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+
+        <span class="n">idf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;idf&quot;</span><span class="p">:</span><span class="n">idf</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home.html&#39;</span><span class="p">,</span><span class="n">context</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_dish"><a class="viewcode-back" href="../views.html#views.add_dish">[docs]</a><span class="k">def</span> <span class="nf">add_dish</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads page to add dish form for admin</span>
+<span class="sd">        Return django.shortcuts.render with Additem.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;admin_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">adminlog</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Additem.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="add_item"><a class="viewcode-back" href="../views.html#views.add_item">[docs]</a><span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add new dish to DB, as received in POST reques</span>
+<span class="sd">        Return django.shortcuts.redirect with viewdish</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">[</span><span class="s2">&quot;imagef&quot;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">des</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;des&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;checks[]&#39;</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">des</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+    <span class="n">food</span> <span class="o">=</span> <span class="n">dish</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">price</span><span class="p">),</span><span class="n">des</span><span class="o">=</span><span class="n">des</span><span class="p">,</span><span class="n">serve_time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span><span class="n">ifile</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">food</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">viewdish</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="add_waste"><a class="viewcode-back" href="../views.html#views.add_waste">[docs]</a><span class="k">def</span> <span class="nf">add_waste</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add a wastage report for the day</span>
+<span class="sd">        Return django.shortcuts.redirect with view_waste</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;total&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">was</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;waste&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="n">total</span><span class="p">,</span><span class="n">was</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">waste</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">waste</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+    <span class="n">w</span> <span class="o">=</span> <span class="n">waste</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">total</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">total</span><span class="p">),</span><span class="n">wastage</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">was</span><span class="p">))</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">view_waste</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="edit_item"><a class="viewcode-back" href="../views.html#views.edit_item">[docs]</a><span class="k">def</span> <span class="nf">edit_item</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Updates a dish as recived in POST request</span>
+<span class="sd">        Return django.shortcuts.redirect with viewdish</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">[</span><span class="s2">&quot;imagef&quot;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="c1"># print(&quot;hhhhhhhhhhhhhhhhhhhhhh&quot;)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">des</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;des&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;checks[]&#39;</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">des</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">dish</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">file</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">ifile</span> <span class="o">=</span> <span class="n">file</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">if</span> <span class="n">price</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">price</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">time</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">serve_time</span> <span class="o">=</span> <span class="n">time</span>
+    <span class="k">if</span> <span class="n">des</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">des</span> <span class="o">=</span> <span class="n">des</span>
+
+    <span class="c1"># food = dish(name=name,price=int(price),des=des,serve_time=time,ifile=file)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">viewdish</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="add_comp"><a class="viewcode-back" href="../views.html#views.add_comp">[docs]</a><span class="k">def</span> <span class="nf">add_comp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add a complaint for student</span>
+<span class="sd">        Return django.shortcuts.redirect with comp</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">[</span><span class="s2">&quot;imagef&quot;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+
+    <span class="n">des</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;des&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="c1"># print(name, price, des, time, file)</span>
+    <span class="n">comp1</span> <span class="o">=</span> <span class="n">complaint</span><span class="p">(</span><span class="n">sub</span><span class="o">=</span><span class="n">sub</span><span class="p">,</span><span class="n">des</span><span class="o">=</span><span class="n">des</span><span class="p">,</span><span class="n">ifile</span><span class="o">=</span><span class="n">file</span><span class="p">,</span><span class="n">onwer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">])</span>
+    <span class="n">comp1</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="add_camp"><a class="viewcode-back" href="../views.html#views.add_camp">[docs]</a><span class="k">def</span> <span class="nf">add_camp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add a campaign for student</span>
+<span class="sd">        Return django.shortcuts.redirect with all_camps</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">des</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;des&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="c1"># print(name, price, des, time, file)</span>
+    <span class="n">camp1</span> <span class="o">=</span> <span class="n">campaign</span><span class="p">(</span><span class="n">sub</span><span class="o">=</span><span class="n">sub</span><span class="p">,</span><span class="n">des</span><span class="o">=</span><span class="n">des</span><span class="p">,</span><span class="n">owner</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">],</span><span class="n">ups</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="n">dns</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+    <span class="n">camp1</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">all_camps</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="edit_dish"><a class="viewcode-back" href="../views.html#views.edit_dish">[docs]</a><span class="k">def</span> <span class="nf">edit_dish</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Edits dish as recived from POST request</span>
+<span class="sd">        Return django.shortcuts.render with edit_dish.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">dish</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="n">t</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="p">:</span><span class="n">t</span><span class="o">.</span><span class="n">price</span><span class="p">,</span><span class="s2">&quot;des&quot;</span><span class="p">:</span><span class="n">t</span><span class="o">.</span><span class="n">des</span><span class="p">,</span><span class="s2">&quot;image&quot;</span><span class="p">:</span><span class="n">t</span><span class="o">.</span><span class="n">ifile</span><span class="p">,</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="n">t</span><span class="o">.</span><span class="n">serve_time</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;edit_dish.html&#39;</span><span class="p">,</span><span class="n">context</span><span class="p">)</span></div>
+
+<span class="c1"># def show_comp(request):</span>
+<span class="c1">#     cid = request.POST.get(&quot;cid&quot;, &quot;&quot;)</span>
+<span class="c1">#     if complaint.objects.filter(id=int(cid)).exists():</span>
+<span class="c1">#         t = complaint.objects.get(id=int(cid))</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         return HttpResponse(&quot;##&quot;)</span>
+<span class="c1">#     if t.onwer != request.session[&#39;student_id&#39;]:</span>
+<span class="c1">#         return redirect(comp)</span>
+<span class="c1">#     if student.objects.filter(id=t.onwer).exists():</span>
+<span class="c1">#         owner = student.objects.get(id=t.onwer)</span>
+<span class="c1">#         owner = f&quot;{owner.name} (LDAP: {owner.ldap})&quot;</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         owner = &quot;User Deleted&quot;</span>
+<span class="c1">#</span>
+<span class="c1">#     output = [t.sub,t.des,owner,str(t.ifile)]</span>
+<span class="c1">#     return HttpResponse(&quot;##&quot;.join(output))</span>
+
+<div class="viewcode-block" id="show_comp"><a class="viewcode-back" href="../views.html#views.show_comp">[docs]</a><span class="k">def</span> <span class="nf">show_comp</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends Complaint details for students and admin</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with output</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">cid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cid&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">complaint</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">cid</span><span class="p">))</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">complaint</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">cid</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;#########################&quot;</span><span class="p">)</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">flag2</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">sesskey</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">sesskey</span> <span class="o">==</span> <span class="s1">&#39;admin_id&#39;</span><span class="p">:</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">sesskey</span> <span class="o">==</span> <span class="s1">&#39;student_id&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">onwer</span> <span class="o">!=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">]:</span>
+                <span class="n">flag2</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">flag2</span> <span class="ow">and</span> <span class="n">flag</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;#########################&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">onwer</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">owner</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">onwer</span><span class="p">)</span>
+        <span class="n">owner</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">owner</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (LDAP: </span><span class="si">{</span><span class="n">owner</span><span class="o">.</span><span class="n">ldap</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">owner</span> <span class="o">=</span> <span class="s2">&quot;User Deleted&quot;</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">des</span><span class="p">,</span><span class="n">owner</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">ifile</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;##&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="student_nav"><a class="viewcode-back" href="../views.html#views.student_nav">[docs]</a><span class="k">def</span> <span class="nf">student_nav</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads nav bar for student</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with output</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;a class=&quot;navbar-brand&quot; href=&quot;/home&quot;&gt;Hostel 1 Mess&lt;/a&gt; &lt;span class=&quot;navbar-brand&quot; href=&quot;/home&quot;&gt;Hi, </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/span&gt;&lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent&quot;&gt;&lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4&quot;&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/comp&quot;&gt;My Complaints&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/raise_comp&quot;&gt;New Complaint&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/all_camps&quot;&gt;Campaigns&lt;/a&gt;&lt;/li&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/raise_camp&quot;&gt;New Campaign&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;/logout_stu&quot; &gt;&lt;i class=&quot;bi bi-box-arrow-right&quot;&gt;&lt;/i&gt;Logout&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&#39;</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="admin_nav"><a class="viewcode-back" href="../views.html#views.admin_nav">[docs]</a><span class="k">def</span> <span class="nf">admin_nav</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads nav bar for admin</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with output</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;a class=&quot;navbar-brand&quot; href=&quot;/home&quot;&gt;Hostel 1 Mess&lt;/a&gt; &lt;span class=&quot;navbar-brand&quot; href=&quot;/home&quot;&gt;Hi, Admin&lt;/span&gt;&lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent&quot;&gt;&lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4&quot;&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/adminhome&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/adddish&quot;&gt;Add Dish&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/viewdish&quot;&gt;View Dish&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/view_waste&quot;&gt;Wastage&lt;/a&gt;&lt;/li&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/admin_comp&quot;&gt;All Complaints&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;/all_camps_admin&quot;&gt;All Campaigns&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;&lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;/logout_admin&quot; &gt;&lt;i class=&quot;bi bi-box-arrow-right&quot;&gt;&lt;/i&gt;Logout&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&#39;</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="all_camps"><a class="viewcode-back" href="../views.html#views.all_camps">[docs]</a><span class="k">def</span> <span class="nf">all_camps</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads page for students to view all campaigns</span>
+<span class="sd">        Return django.shortcuts.render with campaigns.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;student_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;campaigns.html&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="all_camps_admin"><a class="viewcode-back" href="../views.html#views.all_camps_admin">[docs]</a><span class="k">def</span> <span class="nf">all_camps_admin</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Loads page for admin to view all campaigns</span>
+<span class="sd">        Return django.shortcuts.render with campaigns_admin.html</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;admin_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;campaigns_admin.html&#39;</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="vote_page"><a class="viewcode-back" href="../views.html#views.vote_page">[docs]</a><span class="k">def</span> <span class="nf">vote_page</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends all campaign details to student along with choice to up/down vote campaigns</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with response</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+    <span class="n">camps</span> <span class="o">=</span> <span class="n">campaign</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">camps</span><span class="p">:</span>
+         <span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;Deleted User&quot;</span>
+         <span class="n">b1</span> <span class="o">=</span> <span class="s1">&#39;success&#39;</span>
+         <span class="n">b2</span> <span class="o">=</span> <span class="s1">&#39;success&#39;</span>
+         <span class="n">dis</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+         <span class="n">ups</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ups</span>
+         <span class="n">dns</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">dns</span>
+         <span class="n">ups</span> <span class="o">=</span> <span class="n">ups</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+         <span class="n">ups</span> <span class="o">=</span> <span class="n">ups</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+         <span class="n">dns</span> <span class="o">=</span> <span class="n">dns</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+         <span class="n">dns</span> <span class="o">=</span> <span class="n">dns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+         <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
+         <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ups</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">dns</span><span class="p">))</span>
+
+         <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+         <span class="k">try</span><span class="p">:</span>
+
+             <span class="n">votes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ups</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ups</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">dns</span><span class="p">))</span>
+             <span class="n">votes</span> <span class="o">*=</span> <span class="mi">100</span>
+             <span class="n">votes</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">votes</span>
+             <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ups</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">dns</span><span class="p">)</span>
+         <span class="k">except</span><span class="p">:</span>
+             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ex&quot;</span><span class="p">)</span>
+             <span class="n">votes</span> <span class="o">=</span> <span class="mi">0</span>
+
+         <span class="nb">print</span><span class="p">(</span><span class="n">votes</span><span class="p">)</span>
+
+         <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">])</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">ups</span><span class="p">):</span>
+             <span class="n">dis</span> <span class="o">=</span> <span class="s1">&#39;disabled&#39;</span>
+             <span class="n">b2</span> <span class="o">=</span> <span class="s1">&#39;secondary&#39;</span>
+         <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">])</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">dns</span><span class="p">):</span>
+             <span class="n">dis</span> <span class="o">=</span> <span class="s1">&#39;disabled&#39;</span>
+             <span class="n">b1</span> <span class="o">=</span> <span class="s1">&#39;secondary&#39;</span>
+
+         <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exists&quot;</span><span class="p">)</span>
+             <span class="n">t</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span>
+             <span class="n">user</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span>
+         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;Active&#39;</span><span class="p">:</span>
+             <span class="n">dis</span> <span class="o">=</span> <span class="s1">&#39;disabled&#39;</span>
+         <span class="n">button</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-8&quot;&gt;&lt;/div&gt;&lt;div class=&quot;col-2&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-</span><span class="si">{</span><span class="n">b1</span><span class="si">}</span><span class="s1">&quot; onclick=&quot;vote(1,</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">)&quot; </span><span class="si">{</span><span class="n">dis</span><span class="si">}</span><span class="s1">&gt;Up Vote&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;col-2&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-</span><span class="si">{</span><span class="n">b2</span><span class="si">}</span><span class="s1">&quot; onclick=&quot;vote(0,</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">)&quot; </span><span class="si">{</span><span class="n">dis</span><span class="si">}</span><span class="s1">&gt;Down Vote&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&#39;</span>
+         <span class="n">c</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;div class=&quot;card mb-3&quot;&gt;&lt;div class=&quot;card&quot; &gt;&lt;div class=&quot;card-body&quot;&gt;&lt;h5 class=&quot;card-title&quot;&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">sub</span><span class="si">}</span><span class="s1">&lt;/h5&gt;&lt;p class=&quot;card-text&quot;&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">des</span><span class="si">}</span><span class="s1">&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;small class=&quot;text-muted&quot;&gt;Raised By: </span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s1">&lt;/small&gt;&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;small class=&quot;text-muted&quot;&gt;Status: </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s1"> Total votes : </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s1">&lt;/small&gt;&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;progress&quot; style=&quot;margin:2vh 10vw;&quot;&gt;&lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated&quot;  role=&quot;progressbar&quot; aria-valuenow=&quot;</span><span class="si">{</span><span class="n">votes</span><span class="si">}</span><span class="s1">&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: </span><span class="si">{</span><span class="n">votes</span><span class="si">}</span><span class="s1">%&quot;&gt;</span><span class="si">{</span><span class="n">votes</span><span class="si">}</span><span class="s1">%&lt;/div&gt;&lt;/div&gt;</span><span class="si">{</span><span class="n">button</span><span class="si">}</span><span class="s1">&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&#39;</span>
+         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;Active&#39;</span><span class="p">:</span>
+            <span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span>
+         <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span>
+         <span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span>
+         <span class="c1"># print(c)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;##&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="vote_page_admin"><a class="viewcode-back" href="../views.html#views.vote_page_admin">[docs]</a><span class="k">def</span> <span class="nf">vote_page_admin</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends all campaign details to admin along with choice to accept reject campaigns</span>
+<span class="sd">        Return django.shortcuts.HttpResponse with response</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+    <span class="n">camps</span> <span class="o">=</span> <span class="n">campaign</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">camps</span><span class="p">:</span>
+         <span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;Deleted User&quot;</span>
+         <span class="n">b1</span> <span class="o">=</span> <span class="s1">&#39;success&#39;</span>
+         <span class="n">b2</span> <span class="o">=</span> <span class="s1">&#39;success&#39;</span>
+         <span class="n">dis</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+         <span class="n">ups</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ups</span>
+         <span class="n">dns</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">dns</span>
+         <span class="n">ups</span> <span class="o">=</span> <span class="n">ups</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+         <span class="n">ups</span> <span class="o">=</span> <span class="n">ups</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+         <span class="n">dns</span> <span class="o">=</span> <span class="n">dns</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+         <span class="n">dns</span> <span class="o">=</span> <span class="n">dns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+         <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
+         <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ups</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">dns</span><span class="p">))</span>
+
+         <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+         <span class="k">try</span><span class="p">:</span>
+
+             <span class="n">votes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ups</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ups</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">dns</span><span class="p">))</span>
+             <span class="n">votes</span> <span class="o">*=</span> <span class="mi">100</span>
+             <span class="n">votes</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">votes</span>
+             <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ups</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">dns</span><span class="p">)</span>
+         <span class="k">except</span><span class="p">:</span>
+             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ex&quot;</span><span class="p">)</span>
+             <span class="n">votes</span> <span class="o">=</span> <span class="mi">0</span>
+
+         <span class="nb">print</span><span class="p">(</span><span class="n">votes</span><span class="p">)</span>
+
+         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;Rejected&#39;</span><span class="p">:</span>
+             <span class="n">dis</span> <span class="o">=</span> <span class="s1">&#39;disabled&#39;</span>
+             <span class="n">b1</span> <span class="o">=</span> <span class="s1">&#39;secondary&#39;</span>
+         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;Accepted&#39;</span><span class="p">:</span>
+             <span class="n">dis</span> <span class="o">=</span> <span class="s1">&#39;disabled&#39;</span>
+             <span class="n">b2</span> <span class="o">=</span> <span class="s1">&#39;secondary&#39;</span>
+
+         <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exists&quot;</span><span class="p">)</span>
+             <span class="n">t</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span>
+             <span class="n">user</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span>
+         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;Active&#39;</span><span class="p">:</span>
+             <span class="n">dis</span> <span class="o">=</span> <span class="s1">&#39;disabled&#39;</span>
+         <span class="n">button</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-8&quot;&gt;&lt;/div&gt;&lt;div class=&quot;col-2&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-</span><span class="si">{</span><span class="n">b1</span><span class="si">}</span><span class="s1">&quot; onclick=&quot;vote(1,</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">)&quot; </span><span class="si">{</span><span class="n">dis</span><span class="si">}</span><span class="s1">&gt;Accept&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;col-2&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-</span><span class="si">{</span><span class="n">b2</span><span class="si">}</span><span class="s1">&quot; onclick=&quot;vote(0,</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">)&quot; </span><span class="si">{</span><span class="n">dis</span><span class="si">}</span><span class="s1">&gt;Reject&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&#39;</span>
+         <span class="n">c</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;div class=&quot;card mb-3&quot;&gt;&lt;div class=&quot;card&quot; &gt;&lt;div class=&quot;card-body&quot;&gt;&lt;h5 class=&quot;card-title&quot;&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">sub</span><span class="si">}</span><span class="s1">&lt;/h5&gt;&lt;p class=&quot;card-text&quot;&gt;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">des</span><span class="si">}</span><span class="s1">&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;small class=&quot;text-muted&quot;&gt;Raised By: </span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s1">&lt;/small&gt;&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;small class=&quot;text-muted&quot;&gt;Status: </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s1"> Total votes : </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s1">&lt;/small&gt;&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;progress&quot; style=&quot;margin:2vh 10vw;&quot;&gt;&lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated&quot;  role=&quot;progressbar&quot; aria-valuenow=&quot;</span><span class="si">{</span><span class="n">votes</span><span class="si">}</span><span class="s1">&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: </span><span class="si">{</span><span class="n">votes</span><span class="si">}</span><span class="s1">%&quot;&gt;</span><span class="si">{</span><span class="n">votes</span><span class="si">}</span><span class="s1">%&lt;/div&gt;&lt;/div&gt;</span><span class="si">{</span><span class="n">button</span><span class="si">}</span><span class="s1">&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&#39;</span>
+         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;Active&#39;</span><span class="p">:</span>
+            <span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span>
+         <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span>
+         <span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span>
+         <span class="c1"># print(c)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;##&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="vote"><a class="viewcode-back" href="../views.html#views.vote">[docs]</a><span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Updates student&#39;s choice of up/down voting Campaigns</span>
+<span class="sd">        Return django.shortcuts.HttpResponse</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">cid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cid&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">campaign</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">cid</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">dns</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;,</span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;student_id&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">ups</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;,</span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;student_id&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="vote_admin"><a class="viewcode-back" href="../views.html#views.vote_admin">[docs]</a><span class="k">def</span> <span class="nf">vote_admin</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Updates Admin&#39;s choice of accepting/rejecting Campaigns</span>
+<span class="sd">        Return django.shortcuts.HttpResponse</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">cid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cid&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">campaign</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">cid</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Rejected&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Accepted&#39;</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="logout_stu"><a class="viewcode-back" href="../views.html#views.logout_stu">[docs]</a><span class="k">def</span> <span class="nf">logout_stu</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Deletes Session for Student</span>
+<span class="sd">        Return django.shortcuts.redirect object with login</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sesskey</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sesskey</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">sesskey</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="n">sesskey</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">login</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="logout_admin"><a class="viewcode-back" href="../views.html#views.logout_admin">[docs]</a><span class="k">def</span> <span class="nf">logout_admin</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Deletes Session for Admin</span>
+<span class="sd">        Return django.shortcuts.redirect object with /adminhome</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sesskey</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sesskey</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">sesskey</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="n">sesskey</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">adminhome</span><span class="p">)</span></div>
+
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">mess</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">New folder</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, kiran.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
