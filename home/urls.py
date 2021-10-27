@@ -13,6 +13,7 @@ urlpatterns = [
     path('adminlog/', views.adminlog, name='adminlog'),
     path('verify/', views.verify, name='verify'),
     path('adminhome/', views.adminhome, name='adminhome'),
+<<<<<<< HEAD
     path('adddish/', views.add_dish, name='adddish'),
     path('add_item/', views.add_item, name='additem'),
     path('viewdish/', views.viewdish, name='viewdish'),
@@ -49,4 +50,6 @@ urlpatterns = [
     path('stu_waste/', views.stu_waste, name='stu_waste'),
     path('admin_view_comp/', views.admin_view_comp, name='admin_view_comp'),
     path('admin_comp/', views.admin_comp, name='admin_comp'),
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
 ]

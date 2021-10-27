@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.core.mail import send_mail
 from django.conf import settings
+<<<<<<< HEAD
 from .models import student, admintable, dish, waste, review, complaint, campaign
 import random
 
@@ -100,6 +101,12 @@ def dishs(request):
     return render(request, 'dish.html')
 
 
+=======
+from .models import student, admintable
+import random
+
+
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
 
 def login(request):
     '''
@@ -107,7 +114,10 @@ def login(request):
         Return django.shortcuts.render object with index.html
     '''
     return render(request, 'index.html')
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
 def adminlog(request):
     '''
         Loads Page for admin login
@@ -120,6 +130,7 @@ def adminhome(request):
         Loads Page to view Admin's home page
         Return django.shortcuts.render object with admin.html
     '''
+<<<<<<< HEAD
 
     if 'admin_id' not in request.session:
         return redirect(adminlog)
@@ -138,20 +149,30 @@ def viewdish(request):
     return render(request, 'viewdish.html')
 
 
+=======
+    return render(request, 'admin.html')
+
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
 def log_admin(request):
     '''
         Verifies Admin's Credentials
         Return django.shortcuts.redirect object with /adminhome if success
     '''
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
     passw = request.POST.get("pwd", "")
     ldap = request.POST.get("ldap", "")
     print(passw,ldap)
     if admintable.objects.filter(ldap=ldap,password=passw).exists():
         print("exists")
         t = admintable.objects.get(ldap=ldap,password=passw)
+<<<<<<< HEAD
         request.session['admin_id'] = t.id
         request.session['admin_name'] = t.name
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
         return redirect(adminhome)
     return HttpResponse('Login failed!! Try again <a href="http://127.0.0.1:8000/adminlog">here</a>')
 
@@ -160,7 +181,10 @@ def log_ver(request):
         Verify Students Credentials
         Return django.shortcuts.redirect object with /home if success
     '''
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
     passw = request.POST.get("pwd", "")
     ldap = request.POST.get("ldap", "")
     print(passw,ldap)
@@ -173,9 +197,12 @@ def log_ver(request):
         elif t.status == 'unverified':
             return HttpResponse('You have not verified your LDAP, check your mail.')
         else:
+<<<<<<< HEAD
             request.session['student_id'] = t.id
             request.session['name'] = t.name
 
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
             return redirect(home)
     return HttpResponse('Login failed!! Try again <a href="http://127.0.0.1:8000/">here</a>')
 
@@ -202,6 +229,7 @@ def register(request):
     '''
     return render(request, 'register.html')
 
+<<<<<<< HEAD
 def show_dish(request):
     '''
         Sends details for a dish id received in a POST request
@@ -215,13 +243,18 @@ def show_dish(request):
     output = "##".join(output)
     print(output)
     return HttpResponse(output)
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
 
 def student_load(request):
     '''
         Sends all student details for admin to view in tabular form
         Return django.shortcuts.HttpResponse object with results
     '''
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
     students = student.objects.all()
     output = ""
     for s in students:
@@ -232,6 +265,7 @@ def student_load(request):
     print(output)
     return HttpResponse(output)
 
+<<<<<<< HEAD
 def view_comp(request):
     '''
         Sends student's complaint details to view in tabular form
@@ -352,6 +386,8 @@ def show_review(request):
 
 
 
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
 def verify(request):
     '''
         Student Verification confirmation done by Admin
@@ -363,6 +399,7 @@ def verify(request):
     t.save()
     return HttpResponse()
 
+<<<<<<< HEAD
 def delete_dish(request):
     '''
         Deletes a dish as requested by Admin
@@ -373,6 +410,8 @@ def delete_dish(request):
     return HttpResponse()
 
 
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
 def reg(request):
     '''
         Registers student to the portal and sends confirmation email to their emails.
@@ -392,18 +431,26 @@ def reg(request):
 
     link = f'http://127.0.0.1:8000/confirm/?sn={code}&ldap={ldap}'
     # return render(request, 'index.html')
+<<<<<<< HEAD
     print(link)
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
     send_mail(
         'Register to IITB Hostel Mess',
         f'Hi {name}, you have registered to IITB hostel Mess Web app, please confirm your email by clicking on the below link\n {link}',
         'jingax.dev@gmail.com',
+<<<<<<< HEAD
         ['kiran.ranebennur@gmail.com'],
+=======
+        ['aastik.soul@gmail.com'],
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
         fail_silently=True,
     )
 
     return HttpResponse('')
 # Create your views here.
 
+<<<<<<< HEAD
 def post_review(request):
     '''
         Adds review to a dish for student
@@ -833,3 +880,11 @@ def logout_admin(request):
 
 
 
+=======
+def home(request):
+    '''
+        Loads Page to view Admin's home page
+        Return django.shortcuts.render object with admin.html
+    '''
+    return render(request, 'home.html')
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3

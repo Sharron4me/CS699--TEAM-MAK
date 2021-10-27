@@ -24,6 +24,7 @@ class admintable(models.Model):
     name = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
 
+<<<<<<< HEAD
 class waste(models.Model):
     '''Model is used to store daily food wastage and has the following atributes
         1)  Date
@@ -94,3 +95,6 @@ class review(models.Model):
     text = models.CharField(max_length=100)
     rating = models.IntegerField()
     ifile = models.ImageField(upload_to='static/assets', default='')
+=======
+# Create your models here.
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
