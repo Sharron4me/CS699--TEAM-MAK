@@ -11,14 +11,23 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<<<<<<< HEAD
+        <div id="navs" class="container px-4 px-lg-5">
+=======
         <div class="container px-4 px-lg-5">
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
             <a class="navbar-brand" href="#!">Hostel 1 Mess Admin</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+<<<<<<< HEAD
+                    <li class="nav-item"><a class="nav-link" href="/adddish">Add Dish</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/viewdish">View Dishes</a></li>
+=======
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
                     <li class="nav-item"><a class="nav-link" href="campaigns.html">Campaigns</a></li>
                     <li class="nav-item"><a class="nav-link" href="dishapprove.html">New Dish Approve</a></li>
                   </ul>
@@ -100,5 +109,23 @@
     load();
 
   </script>
+<<<<<<< HEAD
+  <script>
+    var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+    $.ajax({
+          url: "http://{{ request.get_host }}/admin_nav/",
+          type: "POST",
+          headers: { "X-CSRFToken": csrf },
+          data: { },
+          success: function(data) {
+          //console.log(data);
+          $("#navs").html(data);
+          }
+        });
+</script>
+
+=======
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
   </body>
 </html>

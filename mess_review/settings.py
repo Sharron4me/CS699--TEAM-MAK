@@ -138,4 +138,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''#Add your Host email ID here
+<<<<<<< HEAD
 EMAIL_HOST_PASSWORD = ''#Add your host email password here
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+=======
+EMAIL_HOST_PASSWORD = ''#Add your host email password here
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3

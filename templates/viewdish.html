@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div id="navs" class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">Hostel 1 Mess Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/adddish">Add Dish</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/viewdish">View Dishes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="campaigns.html">Campaigns</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dishapprove.html">New Dish Approve</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="index.html" >
+                          <i class="bi bi-box-arrow-right"></i>Logout</a>
+                      </li>
+                  </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-dark py-4">
+        <div class="container px-4 px-lg-4 my-4">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Admin Portal</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding:5vh 0;">
+        <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">S no.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody id ="student_table">
+
+        </tbody>
+      </table>
+
+    </div>
+{% csrf_token %}
+      <footer class="py-5 bg-dark">
+          <div class="container"><p class="m-0 text-center text-white">Copyright &copy;Hostel1 Mess</p></div>
+      </footer>
+ <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script>
+    function load(){
+    console.log(5);
+      var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+        $.ajax({
+          url: "http://{{ request.get_host }}/dish_load/",
+          type: "POST",
+          headers: { "X-CSRFToken": csrf },
+          data: {  },
+          success: function(data) {
+          $("#student_table").html(data);
+          }
+        });
+
+
+
+    }
+    function update(ldap){
+    console.log(6);
+      var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+        $.ajax({
+          url: "http://{{ request.get_host }}/delete_dish/",
+          type: "POST",
+          headers: { "X-CSRFToken": csrf },
+          data: { id:ldap },
+          success: function(data) {
+          load();
+          }
+        });
+
+
+
+    }
+    load();
+
+
+
+  </script>
+
+ <script>
+    var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+    $.ajax({
+          url: "http://{{ request.get_host }}/admin_nav/",
+          type: "POST",
+          headers: { "X-CSRFToken": csrf },
+          data: { },
+          success: function(data) {
+          //console.log(data);
+          $("#navs").html(data);
+          }
+        });
+</script>
+  </body>
+</html>

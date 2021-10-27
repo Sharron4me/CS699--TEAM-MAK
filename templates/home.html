@@ -11,6 +11,10 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<<<<<<< HEAD
+        <div id ="navs" class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">Hostel 1 Mess</a> <span class="navbar-brand" href="#!">Hi, {{request.session.name}}</span><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"><li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li></ul><ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="index.html" ><i class="bi bi-box-arrow-right"></i>Logout</a></li></ul>
+=======
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="#!">Hostel 1 Mess</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -28,6 +32,7 @@
                           <i class="bi bi-box-arrow-right"></i>Logout</a>
                       </li>
                   </ul>
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
             </div>
         </div>
     </nav>
@@ -42,6 +47,20 @@
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+<<<<<<< HEAD
+
+                {% for v in idf %}
+                <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Product image-->
+                      <img class="card-img-top" style="height:30vh;width:100%;" src="/media/{{v.1}}" alt="poha" />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <h5 class="fw-bolder">{{v.3}}</h5>
+                              <!-- Product price-->
+                              Rs. {{v.2}}
+=======
               <div class="col mb-5">
                   <div class="card h-100">
                       <!-- Product image-->
@@ -59,10 +78,20 @@
                               </div>
                               <!-- Product price-->
                               $40.00
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
                           </div>
                       </div>
                       <!-- Product actions-->
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+<<<<<<< HEAD
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/dishs/?fid={{v.0}}">View Dish</a></div>
+                      </div>
+                  </div>
+              </div>
+                {% endfor %}
+
+                    
+=======
                           <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Rate Food </a></div>
                       </div>
                   </div>
@@ -142,6 +171,7 @@
                       </div>
                   </div>
               </div>
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
             </div>
         </div>
       </section>
@@ -149,6 +179,27 @@
       <footer class="py-5 bg-dark">
           <div class="container"><p class="m-0 text-center text-white">Copyright &copy;Hostel1 Mess</p></div>
       </footer>
+<<<<<<< HEAD
+{% csrf_token %}
+  </body>
+<script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+<script>
+    var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+    $.ajax({
+          url: "http://{{ request.get_host }}/student_nav/",
+          type: "POST",
+          headers: { "X-CSRFToken": csrf },
+          data: { },
+          success: function(data) {
+          //console.log(data);
+          $("#navs").html(data);
+          }
+        });
+</script>
+=======
 
   </body>
+>>>>>>> 4a97713f1a1fe005134fd2c29ff509416f5334d3
 </html>
